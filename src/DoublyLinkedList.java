@@ -15,7 +15,9 @@ public class DoublyLinkedList {
     String listName;
     
     public DoublyLinkedList(String name){
-
+        this.listName = name;        //set this class's list_name with name
+        head = null;        //set head with NULL to be sure.
+        tail = null;        //set tail with NULL to be sure.
     }
     
     public void popBack() {
@@ -91,7 +93,7 @@ public class DoublyLinkedList {
     }
     
     public boolean isEmpty(){
-        return false;
+        return head==null || tail==null;    //If head or tail is NULL then this method will return true or implies that this list is empty.
     }
     public void merge(DoublyLinkedList list){
         

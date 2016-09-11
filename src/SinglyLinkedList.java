@@ -14,7 +14,8 @@ public class SinglyLinkedList {
     String listName;
     
     public SinglyLinkedList(String name){
-
+        this.listName = name;        //set this class's list_name with name
+        head = null;        //set head with NULL to be sure.
     }
     
     public void popBack() {
@@ -90,7 +91,7 @@ public class SinglyLinkedList {
     }
     
     public boolean isEmpty(){
-        return false;
+        return head==null;    //If head NULL then this method will return true or implies that this list is empty.
     }
     public void merge(SinglyLinkedList list){
         

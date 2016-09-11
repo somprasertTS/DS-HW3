@@ -18,5 +18,6 @@ public class Main {
         node = new Node();
         list1 = new SinglyLinkedList("Hello World!");
         list2 = new DoublyLinkedList("Hello World!");
+
     }
 }

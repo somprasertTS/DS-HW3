@@ -19,10 +19,13 @@ public class Node {
     
     // Constructor 1
     public Node(int id, String name, double gpa){
-
+        this.student_id = id;   //set this class's student_id with id.
+        this.name = name;   //set this class's name with name.
+        this.gpa = gpa;   //set this class's gpa with gpa.
     }
     // Constructor 2
     public Node(String name){
+        this.name = name;        //set this class's name to error message.
 
     }
     // Constructor 3 (dummy)
