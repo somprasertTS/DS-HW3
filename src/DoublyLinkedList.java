@@ -22,49 +22,61 @@ public class DoublyLinkedList {
     
     public void popBack() {
       if (isEmpty()){
- 
+          System.out.print("ERROR");
         }else{
-
+          tail=tail.previous;
+          tail.previous=null;
         }
     }
     
     public void popFront(){
         if (isEmpty()){
- 
+            System.out.print("ERROE");
         }else{
-
+            head=head.next.next;
+            head.next=null;
         }
     }
     
-    public Node topFront(){
+    public Node topFront(){ //BY Nok
         if (isEmpty()){
+            System.out.print("ERROR");
             return new Node();
         } else {
-            return new Node();
+            return head; //return first node
         }
     }
     
-    public Node topBack(){
+    public Node topBack(){ //BY Nok
         if (isEmpty()){
+            System.out.print("ERROR");
             return new Node();
         } else {
-            return new Node();
+            return tail; // tail.next always null //tail is the last node
         }
     }
     
-    public void pushFront(Node node){
+    public void pushFront(Node node){ //BY Nok
+        Node temp = new Node();
+        temp.next=head;
         if (isEmpty()){
-
+            head=tail=temp;
         }else{
-            
+            temp.next=head.next; //a new node point to first node
+            head.previous=temp; // first node point to a new node
+            head=temp;
         }
     }
     
-    public void pushBack(Node node) {
+    public void pushBack(Node node) { //BY Nok
+        Node temp = new Node(); //new node want to add
+        temp.next = null;
         if (isEmpty()) {
-
+            head=tail=temp;
         } else {
-
+            temp=tail; //new node point to last node of list
+            tail.next=temp; //last node point to new code
+            tail=temp;
         }
     }
 
