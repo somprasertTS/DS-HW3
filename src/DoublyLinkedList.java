@@ -24,21 +24,21 @@ public class DoublyLinkedList {
       if (isEmpty()){
           System.out.print("ERROR");
         }else{
-          tail=tail.previous;
-          tail.previous=null;
+          tail=tail.previous; 
+          tail.next=null;
         }
     }
     
     public void popFront(){
         if (isEmpty()){
-            System.out.print("ERROE");
+            System.out.print("ERROR");
         }else{
-            head=head.next.next;
-            head.next=null;
+            head=head.next;
+            head.previous=null;
         }
     }
     
-    public Node topFront(){ //BY Nok
+    public Node topFront(){
         if (isEmpty()){
             System.out.print("ERROR");
             return new Node();
@@ -47,7 +47,7 @@ public class DoublyLinkedList {
         }
     }
     
-    public Node topBack(){ //BY Nok
+    public Node topBack(){
         if (isEmpty()){
             System.out.print("ERROR");
             return new Node();
@@ -56,27 +56,25 @@ public class DoublyLinkedList {
         }
     }
     
-    public void pushFront(Node node){ //BY Nok
-        Node temp = new Node();
-        temp.next=head;
+    public void pushFront(Node node){
+        node.next = head;
         if (isEmpty()){
-            head=tail=temp;
+            head=tail=node;
         }else{
-            temp.next=head.next; //a new node point to first node
-            head.previous=temp; // first node point to a new node
-            head=temp;
+            node.next=head.next; //a new node point to first node
+            head.previous=node; // first node point to a new node
+            head=node;
         }
     }
     
-    public void pushBack(Node node) { //BY Nok
-        Node temp = new Node(); //new node want to add
-        temp.next = null;
+    public void pushBack(Node node) {
+        node.next = null;
         if (isEmpty()) {
-            head=tail=temp;
+            head=tail=node;
         } else {
-            temp=tail; //new node point to last node of list
-            tail.next=temp; //last node point to new code
-            tail=temp;
+            node=tail; //new node point to last node of list
+            tail.next=node; //last node point to new code
+            tail=node;
         }
     }
 
