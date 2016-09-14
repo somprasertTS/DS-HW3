@@ -24,8 +24,8 @@ public class DoublyLinkedList {
       if (isEmpty()){
           System.out.print("ERROR");
         }else{
-          tail=tail.previous; 
-          tail.next=null;
+          tail=tail.previous; //tail point to before last node
+          tail.next=null; //cut last node out
         }
     }
     
@@ -52,34 +52,37 @@ public class DoublyLinkedList {
             System.out.print("ERROR");
             return new Node();
         } else {
-            return tail; // tail.next always null //tail is the last node
+            return tail; // return tail //tail.next always null //tail is the last node
         }
     }
     
     public void pushFront(Node node){
-        node.next = head;
+        node.next = null;
         if (isEmpty()){
             head=tail=node;
+            node.previous=null;
         }else{
-            node.next=head.next; //a new node point to first node
-            head.previous=node; // first node point to a new node
+            node.next=head; //a new node point to first node
             head=node;
         }
     }
     
     public void pushBack(Node node) {
-        node.next = null;
+        node.next = null;//new node be the last node of list
         if (isEmpty()) {
             head=tail=node;
+            node.previous=null;
         } else {
-            node=tail; //new node point to last node of list
-            tail.next=node; //last node point to new code
-            tail=node;
+            node.previous=tail;
+            tail.next=node; //new node point to last node of list
+            tail=node;//last node point to new code
+
         }
     }
 
     public Node findNode(int id){
         if (isEmpty()){
+            System.out.print("ERROR");
             return new Node();
         } else {
             return new Node();
@@ -88,31 +91,43 @@ public class DoublyLinkedList {
     
     public Node eraseNode(int id){
         if (isEmpty()){
+            System.out.print("ERROR");
             return new Node();
         } else {
             return new Node();
         }
     }
     
-    public void addNodeAfter(Node node1, Node node2){
-
+    public void addNodeAfter(Node node1, Node node2){ //node 1 is a current node node 2 is a new node to add
+        node2.next = node1.next;
+        node1.next = node2;
+        node2.previous=node1;
+        node1.next.previous=node2;
     }
     
     public void addNodeBefore(Node node1, Node node2){
+        node2.next = node1;
 
     }
     
     public boolean isEmpty(){
         return head==null || tail==null;    //If head or tail is NULL then this method will return true or implies that this list is empty.
     }
+
     public void merge(DoublyLinkedList list){
-        
+        tail.next=list.head.previous;
     }
     
     public void printStructure(){
-        System.out.println("Hello World!");
+        Node current = head;
+        System.out.print(listName + ": head <-> ");
+        while(current!=null){
+            System.out.print("{" + current.student_id + "} <-> ");
+            current = current.next;
+        }
+        System.out.print("tail");
     }
-    
+
     // This may be useful for you for implementing printStructure()
     public void printStructureBackward(){ 
         Node current=tail;

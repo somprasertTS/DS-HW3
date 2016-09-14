@@ -17,7 +17,15 @@ public class Main {
         DoublyLinkedList list2;
         node = new Node();
         list1 = new SinglyLinkedList("Hello World!");
-        list2 = new DoublyLinkedList("Hello World!");
-
-    }
+        list2 = new DoublyLinkedList("list2");
+                node = new Node(5806001,"Matthew",3.50);
+                list2.pushFront(node);
+                node = new Node(5806002,"Mark",2.75);
+                list2.pushFront(node);
+                node = new Node(5806003,"Luke",3.00);
+                list2.pushFront(node);
+                node = new Node(5806004,"John",3.75);
+                list2.pushFront(node);
+                list2.printStructure();
+        }
 }
